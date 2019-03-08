@@ -1,0 +1,137 @@
+*, *::before, *::after{
+	box-sizing: border-box;
+}
+
+body{
+	font-size: 1rem;
+	text-align: center;
+	line-height: 1.4;
+	color: red;
+}
+
+h1, h3{
+	text-transform: uppercase;
+	line-height: .9;
+}
+
+.intro{
+	position: relative;
+	display: inline-block;
+}
+
+
+.intro::before, .intro::after{
+	content: '';
+	display: block;
+	position: absolute;
+}
+
+.intro::before{
+	background: white;
+	z-index: -1;
+	height: 101%;
+	left: -20px;
+	right: -20px;
+}
+
+.intro::after{
+	background: red;
+	width: 100vw;
+	left: 50%;
+	top: 0;
+	transform: translateX(-50%);
+	z-index: -2;
+	height: 100%;
+}
+
+h2{
+	margin-top: 1.2em;
+	margin-bottom: 0;
+}
+
+p{
+	margin-top: .25em;
+}
+
+
+.container{
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+
+.card{
+	position: relative;
+	margin: 1em;
+	background: gray;
+}
+
+.card::before, .card::after{
+	content: '';
+	position: absolute;
+	top: 1.25em;
+	bottom: 1.25em;
+	left: 1.25em;
+	right: 1.25em;
+}
+
+.card::before{
+	transform: scale(0,1);
+	transition: transform ease-out 250ms;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+
+.card::before{
+	transform: scale(1,0);
+	transition: transform ease-out 250ms;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+}
+
+.card:hover::before{
+	transform: scale(1.05, 1);
+}
+
+.card:hover::after{
+	transform: scale(1, 1.05);
+}
+
+.card__img{
+	max-width: 100%;
+	display: block;
+	transition: opacity ease-out 250ms;
+}
+
+.card:hover {
+  .card__img {
+    opacity: .4;
+  }
+}
+
+.card__text{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	opacity: 0;
+	transition: opacity ease-out 250ms;
+}
+
+.card:hover .card__text {
+  opacity: 1;
+}
+
+.card__title {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 0;
+}
+
+.source{
+	margin-top: 100px;
+}
+
+
